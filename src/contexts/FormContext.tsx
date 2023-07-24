@@ -33,3 +33,23 @@ const formReducer = (state, action) => {
   }
 }
 
+
+// Provider
+const FormProvider = ({children}) => {
+  const [state, dispatch] = useReducer(formReducer, initialData);
+  const value = { state, dispatch};
+  return (
+    <FormContext.Provider value={value}>
+      {children}
+    </FormContext.Provider>
+  )
+}
+
+// Context Hook
+const useForm =  () => {
+  const context = useContext(FormContext);
+  if(context === undefined){
+    throw new Error("useForm precisa ser usado dentro do FormProvider");
+  }
+  return context;
+}
