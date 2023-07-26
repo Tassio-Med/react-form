@@ -1,9 +1,11 @@
-import React from 'react'
+import { FormProvider } from './contexts/FormContext';
 import { Router } from './router';
 
 const App = () => {
   return (
-    <Router/>
+    <FormProvider>
+      <Router/>
+    </FormProvider>
   );
 }
 
