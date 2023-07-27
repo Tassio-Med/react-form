@@ -10,9 +10,9 @@ export const Theme = ({children}: Props) => {
       <div>
         <Header/>
         <div>
-          <Sidebar>
+          <div>
             ...
-          <Sidebar/>
+          </div>
           <div>
             {children}
           </div>
