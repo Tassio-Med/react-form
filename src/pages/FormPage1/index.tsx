@@ -23,7 +23,7 @@ export const FormPage1 = () => {
           <input
             type="text"
             autoFocus
-            value={state}
+            value={state.name}
           />
         </label>
 
