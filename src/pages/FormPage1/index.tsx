@@ -1,19 +1,34 @@
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm, FormActions } from '../../contexts/FormContext';
 import { Theme } from "../../components/Theme";
+import { ChangeEvent, useEffect } from "react";
 
 export const FormPage1 = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const {state, dispatch} = useForm();
 
+  useEffect(() => {
+    dispatch({
+      type: FormActions.setCurrentStep,
+      payload: 1
+    });
+  }, [dispatch]);
+
   const handleNextStep = () => {
-    history.push('/step2');
+    state.name !== '' ? navigate('/step2') : alert("Preencha os dados requisitados.");
+  }
+
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: FormActions.setName,
+      payload: e.target.value,
+    });
   }
 
   return(
     <Theme>
       <div>
-        <p>Passo 1/3 - {state.name}</p>
+        <p>Passo 1/3</p>
         <h1>Vamos começar com seu nome</h1>
         <p>Preeencha o campo abaixo com seu nome completo.</p>
 
@@ -24,6 +39,7 @@ export const FormPage1 = () => {
             type="text"
             autoFocus
             value={state.name}
+            onChange={handleNameChange}
           />
         </label>
 
