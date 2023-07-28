@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm, FormActions } from '../../contexts/FormContext';
 import { Theme } from "../../components/Theme";
 import { /* ChangeEvent,*/ useEffect } from "react";
@@ -9,23 +9,27 @@ export const FormPage2 = () => {
   const {state, dispatch} = useForm();
 
   useEffect(() => {
-    dispatch({
-      type: FormActions.setCurrentStep,
-      payload: 2
-    });
-  }, [dispatch]);
+    state.name === '' 
+      ? navigate('/') 
+      :
+        dispatch({
+          type: FormActions.setCurrentStep,
+          payload: 2
+        });
+  },);
 
   const handleNextStep = () => {
     state.name !== '' ? navigate('/step2') : alert("Preencha os dados requisitados.");
   }
 
 
+
   return(
     <Theme>
       <div>
         <p>Passo 2/3</p>
-        <h1>Vamos começar com seu nome</h1>
-        <p>Preeencha o campo abaixo com seu nome completo.</p>
+        <h1>{state.name}, o que melhor descreve você?</h1>
+        <p>Escolha a opção que melhor condiz com seu estado atual, profissionalmente.</p>
 
         <hr />
 
@@ -35,11 +39,12 @@ export const FormPage2 = () => {
           icon="😇"
         />
         <SelectOption
-          title="Sou programador sênior"
-          description="Já programo há mais de 7 anos"
+          title="Sou programador pleno"
+          description="Já programo há mais de 3 anos"
           icon="🥸"
         />
 
+        <Link to="/">Voltar</Link>
         <button onClick={handleNextStep}>Próximo</button>
       </div>
     </Theme>
