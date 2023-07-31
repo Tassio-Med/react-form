@@ -10,7 +10,7 @@ export const FormPage3 = () => {
   useEffect(() => {
     dispatch({
       type: FormActions.setCurrentStep,
-      payload: 1
+      payload: 3
     });
   }, [dispatch]);
 
@@ -28,7 +28,7 @@ export const FormPage3 = () => {
   return(
     <Theme>
       <div>
-        <p>Passo 1/3</p>
+        <p>Passo 3/3</p>
         <h1>Vamos começar com seu nome</h1>
         <p>Preeencha o campo abaixo com seu nome completo.</p>
 

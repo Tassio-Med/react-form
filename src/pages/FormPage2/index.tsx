@@ -19,7 +19,7 @@ export const FormPage2 = () => {
   },);
 
   const handleNextStep = () => {
-    state.name !== '' ? navigate('/step2') : alert("Preencha os dados requisitados.");
+    state.name !== '' ? navigate('/step3') : alert("Preencha os dados requisitados.");
   }
 
 
