@@ -15,7 +15,7 @@ export const FormPage1 = () => {
   }, [dispatch]);
 
   const handleNextStep = () => {
-    state.name !== '' ? navigate('/step2') : alert("Preencha os dados requisitados.");
+    state.name !== '' ? navigate('/page2') : alert("Preencha os dados requisitados.");
   }
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
