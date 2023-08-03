@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useForm, FormActions } from '../../contexts/FormContext';
 import { Theme } from "../../components/Theme";
-import { ChangeEvent, useEffect } from "react";
-import { Button, TextField, Typography } from '@mui/material';
+import { ChangeEvent, useEffect } from "react"
+import { Box, Button, Divider, TextField, Typography } from "@mui/material";
+
 
 
 export const FormPage1 = () => {
@@ -29,12 +30,12 @@ export const FormPage1 = () => {
 
   return(
     <Theme>
-      <div>
+      <Box >
         <Typography variant="body1">Passo 1/3</Typography>
         <Typography variant="h4">Vamos começar com seu nome</Typography>
         <Typography variant="body1">Preeencha o campo abaixo com seu nome completo.</Typography>
 
-        <hr />
+        <Divider/>
 
         <TextField
           autoFocus
@@ -42,10 +43,25 @@ export const FormPage1 = () => {
           label="Nome Completo"
           value={state.name}
           onChange={handleNameChange}
+          variant="outlined"
+          InputProps={{
+            style: {
+              color: '#FFF',
+              backgroundColor: '#02044A',
+            },
+          }}
         />
 
-        <Button variant="contained" color="primary" onClick={handleNextStep}>Próximo</Button>
-      </div>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleNextStep}
+          fullWidth
+          style={{ marginTop: '30px' }}
+        >
+          Próximo
+        </Button>
+      </Box>
     </Theme>
   );
 }

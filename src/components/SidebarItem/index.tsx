@@ -12,9 +12,9 @@ type Props = {
 
 export const SidebarItem = ({title, description, icon, path}: Props) => {
   return (
-    <Box>
+    <Box bgcolor="#02044A" color="#FFF">
       <Link to={path}>
-        <Box>
+        <Box color="#FFF">
           <Typography>{title}</Typography>
           <Typography>{description}</Typography>
         </Box>
